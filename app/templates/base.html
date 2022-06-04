@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+        <title>{{ title }} | PyMicroblog</title>
+    {% else %}
+        <title>PyMicroblog</title>
+    {% endif %}
+</head>
+<body>
+    <header>
+        <h1>Microblog</h1>
+
+        <ul>
+            <li>
+                <a href="{{ url_for('index') }}">Página inicial</a>
+            </li>
+            <li>
+                <a href="{{ url_for('login') }}">Entrar</a>
+            </li>
+        </ul>
+    </header>
+
+    <hr>
+
+    {% block content %}{% endblock %}
+
+    <hr>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+</body>
+</html>
