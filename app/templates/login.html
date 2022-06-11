@@ -17,7 +17,7 @@
         <p>
             {{ form.password.label }}<br>
             {{ form.password(size=32) }}<br>
-            {% for message in form.username.errors %}
+            {% for message in form.password.errors %}
                 <span style="color: red">[{{ message }}]</span>
             {% endfor %}
         </p>
