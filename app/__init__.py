@@ -11,6 +11,11 @@ app = Flask(__name__)
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
+
 login = LoginManager(app)
+
+# O nome da view function que o Flask-Login utiliza para, por exemplo,
+# proteger páginas de serem acessadas por usuários anonônimos.
+login.login_view = 'login'
 
 from app import routes, models
