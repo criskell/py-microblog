@@ -19,7 +19,11 @@
                 <a href="{{ url_for('index') }}">Página inicial</a>
             </li>
             <li>
-                <a href="{{ url_for('login') }}">Entrar</a>
+                {% if current_user.is_anonymous %}
+                    <a href="{{ url_for('login') }}">Entrar</a>
+                {% else %}
+                    <a href="{{ url_for('logout') }}">Sair</a>
+                {% endif %}
             </li>
         </ul>
     </header>
