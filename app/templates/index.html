@@ -1,25 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if title %}
-        <title>{{ title }} | Microblog</title>
-    {% else %}
-        <title>Microblog</title>
-    {% endif %}
-</head>
-<body>
-    <h1>Olá, {{ user.username }}!</h1>
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Olá, {{ current_user.username }}</h1>
 
     {% for post in posts %}
-        <div>
-            <p>
-                <strong>{{ post.author.username }} disse</strong>:
-                {{ post.body }}
-            </p>
-        </div>
+        <article>
+            <p>{{ post.author.username }} disse: <strong>{{ post.body }}</strong></p>
+        </article>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
