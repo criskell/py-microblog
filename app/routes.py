@@ -91,11 +91,11 @@ def user(username):
 
     posts = [
         {
-            'author': { 'username': 'criskell' },
+            'author': user,
             'body': 'Aprendendo Flask!'
         },
         {
-            'author': { 'username': 'criskell' },
+            'author': user,
             'body': 'Preciso fazer as lições de casa!'
         }
     ]
