@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>
+        <img src="{{ user.avatar(64) }}">
+        Perfil de {{ user.username }}
+    </h1>
+
+    {% if user == current_user %}
+        <a href="{{ url_for('edit_profile') }}">Editar meu perfil</a>
+    {% endif %}
+
+    <dl>
+        {% if user.about_me %}
+            <dt>Sobre mim</dt>
+            <dd>
+                {{ user.about_me }}
+            </dd>
+        {% endif %}
+
+        {% if user.last_seen %}
+            <dt>Última vez visto</dt>
+            <dd>
+                {{ user.last_seen }}
+            </dd>
+        {% endif %}
+    </dl>
+
+
+    {% for post in posts %}
+        {% include '_post.html' %}
+    {% endfor %}
+{% endblock %}
