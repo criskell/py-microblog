@@ -18,4 +18,4 @@ login = LoginManager(app)
 # proteger páginas de serem acessadas por usuários anonônimos.
 login.login_view = 'login'
 
-from app import routes, models
+from app import routes, models, errors
